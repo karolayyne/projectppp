@@ -2,10 +2,10 @@ let localVideo = document.getElementById("local-video")
 let remoteVideo = document.getElementById("remote-video")
 
 localVideo.style.opacity = 0
-remoteVideo.style.opacity = 0
+remoteVideo.style.opacity = 100
 
 localVideo.onplaying = () => { localVideo.style.opacity = 1 }
-remoteVideo.onplaying = () => { remoteVideo.style.opacity = 1 }
+remoteVideo.onplaying = () => { remoteVideo.style.opacity = 100 }
 
 let peer
 function init(userId) {
@@ -28,8 +28,8 @@ function listen() {
 
         navigator.getUserMedia({
             audio: true, 
-            video: true,
-            facingMode: { exact: "environment" }
+            video: {
+            facingMode:  "environment", }
         }, (stream) => {
             localVideo.srcObject = stream
             localStream = stream
@@ -51,8 +51,8 @@ function listen() {
 function startCall(otherUserId) {
     navigator.getUserMedia({
         audio: true,
-        video: true,
-        facingMode: { exact: "environment" }
+        video: {
+            facingMode:  "environment", }
     }, (stream) => {
 
         localVideo.srcObject = stream
