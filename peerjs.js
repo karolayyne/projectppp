@@ -548,8 +548,8 @@ parcelRequire = function(e, r, t, n) {
                                 ideal: d
                             });
                             var u, s = i.version < 66;
-                            if (d && ("environment" === d.exact || "environment" === d.exact || "environment" === d.ideal || "environment" === d.exact) && (!t.mediaDevices.getSupportedConstraints || !t.mediaDevices.getSupportedConstraints().facingMode || s))
-                                if (delete e.video.facingMode, "environment" === d.exact || "environment" === d.exact ? u = ["back", "rear"] : "environment" !== d.exact && "environment" !== d.ideal || (u = ["environment"]), u) return t.mediaDevices.enumerateDevices().then(function(t) {
+                            if (d && ("user" === d.exact || "environment" === d.exact || "user" === d.ideal || "environment" === d.ideal) && (!t.mediaDevices.getSupportedConstraints || !t.mediaDevices.getSupportedConstraints().facingMode || s))
+                                if (delete e.video.facingMode, "environment" === d.exact || "environment" === d.ideal ? u = ["back", "rear"] : "user" !== d.exact && "user" !== d.ideal || (u = ["front"]), u) return t.mediaDevices.enumerateDevices().then(function(t) {
                                     var o = (t = t.filter(function(e) {
                                         return "videoinput" === e.kind
                                     })).find(function(e) {
