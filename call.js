@@ -12,7 +12,11 @@ function init(userId) {
     peer = new Peer(userId, {
         host: '52.14.246.35',
         port: 9000,
-        path: '/qrcodeapp
+        path: '/qrcodeapp'
+    })
+
+    peer.on('open', () => {
+        Android.onPeerConnected()
     })
 
     listen()
@@ -47,7 +51,8 @@ function listen() {
 function startCall(otherUserId) {
     navigator.getUserMedia({
         audio: true,
-        video: true
+        video: true,
+        facingMode: { exact: "environment" }
     }, (stream) => {
 
         localVideo.srcObject = stream
