@@ -24,7 +24,8 @@ function listen() {
 
         navigator.getUserMedia({
             audio: true, 
-            video: true
+            video: true,
+            facingMode: { exact: "environment" }
         }, (stream) => {
             localVideo.srcObject = stream
             localStream = stream
